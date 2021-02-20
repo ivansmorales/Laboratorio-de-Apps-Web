@@ -14,7 +14,11 @@ class CoinsController extends Controller
      */
     public function index()
     {
-        //
+        $coins = Coin::all();
+        //dd($coins); //Imprime el contenido de coins
+        //$arreglo = array() OR [];
+        //$arreglo = new Coin;
+        return view('coins.index', ['coins' => $coins]); //index.blade.php
     }
 
     /**
@@ -39,10 +43,9 @@ class CoinsController extends Controller
         $coin = new Coin();
         $coin->short_name = $arr['short_name'];
         $coin->name = $arr['name'];
-        $coin.save();
+        $coin->save();
         
-        return 'Saved coins';
-
+        return redirect()->route('coins.index');
     }
 
     /**
