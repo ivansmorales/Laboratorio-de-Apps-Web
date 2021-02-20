@@ -11,6 +11,7 @@
             <th>#</th>
             <th>Short name</th>
             <th>Name</th>
+            <th>Update</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->short_name }}</td>
                 <td>{{ $item->name }}</td>
+                <td><a href="{{route('coins.edit', $item->id ) }}"> Edit</a></td>
             </tr>
         @endforeach
     </tbody>
