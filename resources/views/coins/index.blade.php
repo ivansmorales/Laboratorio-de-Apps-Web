@@ -12,8 +12,6 @@
     <a href="{{route('auth.logout')}}">Logout</a>
 </p>
 
-
-
 <table>
     <thead>
         <tr>
