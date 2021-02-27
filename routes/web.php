@@ -25,5 +25,12 @@ Route::get('/f', function () {
 Route::get('/prueba-controller', 'PruebaController@index');
 
 Route::resource('coins', 'CoinsController');
+Route::resource('users', 'AuthController');
 
+
+Route::get('register', 'AuthController@register') -> name('auth.register'); //Se le pone nombre a la ruta.
+Route::post('register', 'AuthController@doRegister') -> name('auth.do-register'); //Se le pone nombre a la ruta.
+Route::get('login', 'AuthController@login') -> name('auth.login'); //Se le pone nombre a la ruta.
+Route::post('login', 'AuthController@doLogin') -> name('auth.do-login'); //Se le pone nombre a la ruta.
+Route::any('logout', 'AuthController@logout') -> name('auth.logout'); //Any: cualquier tipo de peticion
 //Route::get('coins','CoinsController@index' );

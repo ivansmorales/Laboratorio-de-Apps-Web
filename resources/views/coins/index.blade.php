@@ -2,16 +2,25 @@
 
 @section('content')
 <h1>List of coins</h1>
+
 <p>
-    Create a coin, <a href="{{route('coins.create')}}">click here.</a>
+    @auth
+        Welcome back {{ auth()->user()->email}} <br>
+    @endauth
+
+    Create a coin, <a href="{{route('coins.create')}}">click here.</a> <br>
+    <a href="{{route('auth.logout')}}">Logout</a>
 </p>
+
+
+
 <table>
     <thead>
         <tr>
             <th>#</th>
             <th>Short name</th>
             <th>Name</th>
-            <th>Update</th>
+            <th>Edit</th>
         </tr>
     </thead>
     <tbody>
