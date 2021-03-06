@@ -8,8 +8,10 @@
 <table>
     <thead>
         <tr>
+            <th>Id</th>
             <th>Name</th>
             <th>Email</th>
+            <th>View profile</th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +20,7 @@
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->email }}</td>
-                <td>{{ $item->password }}</td>
+                <td><a href="{{route('users.edit', $item->id ) }}"> View</a></td>
             </tr>
         @endforeach
     </tbody>

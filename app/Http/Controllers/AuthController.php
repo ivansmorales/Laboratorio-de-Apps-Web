@@ -25,6 +25,21 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    public function edit($id)
+    {
+        $users = User::find($id);
+        return view('auth.put', ['user' => $users]);
+    }
+
+    public function upload(Request $req){
+        if($req->hasFile('image')){
+            $filename = $req->image->getClientOriginalName();
+            $req->image->storeAs('images', $filename, 'public');
+            Auth()->user()->update(['image'=>$filename]);
+        }
+        return redirect()->back();
+    }
+
     public function doRegister(Request $req){
         //\Log::info($req->all()); //Este info lo muestra en debug.
         $data = $req->all();

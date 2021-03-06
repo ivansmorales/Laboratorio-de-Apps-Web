@@ -27,6 +27,7 @@ Route::get('/prueba-controller', 'PruebaController@index');
 Route::resource('coins', 'CoinsController');
 Route::resource('users', 'AuthController');
 
+Route::post('/users','AuthController@upload');
 
 Route::get('register', 'AuthController@register') 
     -> name('auth.register') //Se le pone nombre a la ruta.
